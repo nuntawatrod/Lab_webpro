@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <th>username</th>
+                <th>password</th>
+                <th>email</th>
+                <th>firstname</th>
+                <th>lastname</th>
+                <th>age</th>
+                <th>address</th>
+                <th>phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach((item)=> { %>
+                <tr>
+                    <td>
+                        <%= item.username %>
+                    </td>
+                    <td>
+                        <%= item.password %>
+                    </td>
+                    <td>
+                        <%= item.email %>
+                    </td>
+                    <td>
+                        <%= item.firstname %>
+                    </td>
+                    <td>
+                        <%= item.lastname %>
+                    </td>
+                    <td>
+                        <%= item.age %>
+                    </td>
+                    <td>
+                        <%= item.address %>
+                    </td>
+                    <td>
+                        <%= item.phone %>
+                    </td>
+                </tr>
+                <% }); %>
+        </tbody>
+    </table>
+
+    <br>
+</body>
+
+</html>
