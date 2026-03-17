@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <h1>The most popular albums</h1>
+    <div class="container">
+
+        <% data.forEach(item=> { %>
+            <div class=card>
+                <img src="<%= item.album_cover %>">
+                <h3>
+                    <%= item.song %>
+                </h3>
+                <p>Album: <%= item.album %> (<%= item.year %>)
+                </p>
+                <p>Artist: <%= item.artist %>
+                </p>
+                <p>Genre: <%= item.genre %>
+                </p>
+            </div>
+            <% }); %>
+
+    </div>
+</body>
+
+</html>
