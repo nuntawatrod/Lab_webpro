@@ -1,0 +1,12 @@
+.box-gallery {
+    display: flex;
+    gap: 20px;
+}
+
+.box-gallery div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid antiquewhite;
+}

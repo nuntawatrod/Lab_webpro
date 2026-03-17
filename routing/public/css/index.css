@@ -1,0 +1,25 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(18, 60, 46);
+    color: antiquewhite;
+    padding: 10px 20px;
+}
+
+.nav-left a {
+    margin-right: 15px;
+    font-size: 18px;
+    color: antiquewhite;
+    text-decoration: none;
+}
+
+.nav-right button {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 0px;
+    border-width: 2px;
+    border-color: rgb(70, 44, 90);
+    background-color: rgb(89, 49, 127);
+    box-shadow: 2px 3px 4px rgb(57, 66, 59);
+}
