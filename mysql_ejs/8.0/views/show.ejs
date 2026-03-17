@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <th>รหัส (ID)</th>
+                <th>ชื่ออาจารย์ (Name)</th>
+                <th>แผนก (Dept Name)</th>
+                <th>เงินเดือน (Salary)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach((item)=> { %>
+                <tr>
+                    <td>
+                        <%= item.id %>
+                    </td>
+                    <td>
+                        <%= item.name %>
+                    </td>
+                    <td>
+                        <%= item.dept_name %>
+                    </td>
+                    <td>
+                        <%= item.salary %>
+                    </td>
+                </tr>
+                <% }); %>
+        </tbody>
+    </table>
+
+    <br>
+    <a href="/form">➕ เพิ่มข้อมูลอาจารย์คนใหม่</a>
+</body>
+
+</html>
