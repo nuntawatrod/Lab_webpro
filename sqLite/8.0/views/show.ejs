@@ -1,0 +1,39 @@
+<body>
+    <%- include('templates/header') %>
+        <h2>📊 รายชื่อพนักงาน (Employee List)</h2>
+
+        <table border="1" style="width:100%; border-collapse: collapse; text-align: left;">
+            <thead style="background-color: #f2f2f2;">
+                <tr>
+                    <th style="padding: 12px;">ID</th>
+                    <th style="padding: 12px;">First Name</th>
+                    <th style="padding: 12px;">Last Name</th>
+                    <th style="padding: 12px;">Title</th>
+                    <th style="padding: 12px;">Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% data.forEach((item)=> { %>
+                    <tr>
+                        <td style="padding: 10px;">
+                            <%= item.EmployeeId %>
+                        </td>
+                        <td style="padding: 10px;">
+                            <%= item.FirstName %>
+                        </td>
+                        <td style="padding: 10px;">
+                            <%= item.LastName %>
+                        </td>
+                        <td style="padding: 10px;">
+                            <%= item.Title %>
+                        </td>
+                        <td style="padding: 10px;">
+                            <%= item.Email %>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+
+        <%- include('templates/footer') %>
+</body>
