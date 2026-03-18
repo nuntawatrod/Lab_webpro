@@ -1,0 +1,38 @@
+<body>
+    <h1>Questions</h1>
+    <% data.forEach(item=> { %>
+        <h2>
+            <%= item.Stem %>
+        </h2>
+        <ul>
+            <li>
+                <input type="radio" id="optionA" name="answer"
+                    onclick="window.location.href='/answer/<%= item.QID %>/A'">
+                <label for="optionA">
+                    <%= item.Alt_A %>
+                </label>
+            </li>
+            <li>
+                <input type="radio" id="optionB" name="answer"
+                    onclick="window.location.href='/answer/<%= item.QID %>/B'">
+                <label for="optionB">
+                    <%= item.Alt_B %>
+                </label>
+            </li>
+            <li>
+                <input type="radio" id="optionC" name="answer"
+                    onclick="window.location.href='/answer/<%= item.QID %>/C'">
+                <label for="optionC">
+                    <%= item.Alt_C %>
+                </label>
+            </li>
+            <li>
+                <input type="radio" id="optionD" name="answer"
+                    onclick="window.location.href='/answer/<%= item.QID %>/D'">
+                <label for="optionD">
+                    <%= item.Alt_D %>
+                </label>
+            </li>
+        </ul>
+        <% }); %>
+</body>
