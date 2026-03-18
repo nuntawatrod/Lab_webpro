@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>ระบบติดตามคำสั่งซื้อ</h1>
+    <form action="/order" method="POST">
+        <input type="text" name="name" placeholder="ชื่อลูกค้า">
+        <input type="text" name="product" placeholder="รายการสินค้า">
+        <input type="text" name="address" placeholder="ที่อยู่">
+        <input type="text" name="tel" placeholder="เบอร์โทร">
+        <button type="submit">เพิ่มคำสั่งซื้อ</button>
+    </form>
+    <br>
+    <h1>รายการคำสั่งซื้อ</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>ลูกค้า</th>
+                <th>สินค้า</th>
+                <th>สถานะ</th>
+                <th>เปลี่ยนสถานะ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach(item=> { %>
+                <tr>
+                    <td>
+                        <%= item.Id %>
+                    </td>
+                    <td>
+                        <%= item.Firstname %>
+                    </td>
+                    <td>
+                        <%= item.Product %>
+                    </td>
+                    <td>
+                        <%= { 'processing' : 'รอดำเนินการ' , 'delivery' : 'กำลังจัดส่ง' , 'delivered' : 'จัดส่งแล้ว'
+                            }[item.Status] || item.Status %>
+                    </td>
+                    <td>
+                        <form action="/update-status/<%= item.Id %>" method="POST" style="margin: 0;">
+                            <select name="status">
+                                <option value="processing" <%=item.Status==='processing' ? 'selected' : '' %>
+                                    >รอดำเนินการ</option>
+                                <option value="delivery" <%=item.Status==='delivery' ? 'selected' : '' %>>กำลังจัดส่ง
+                                </option>
+                                <option value="delivered" <%=item.Status==='delivered' ? 'selected' : '' %>>จัดส่งแล้ว
+                                </option>
+                            </select>
+                            <button type="submit">Update</button>
+                        </form>
+                    </td>
+                </tr>
+                <% }); %>
+        </tbody>
+    </table>
+</body>
+
+</html>
