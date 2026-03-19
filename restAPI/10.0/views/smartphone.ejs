@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartphones Catalog</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        /* 📱 ระบบ Grid สำหรับจัดเรียงการ์ด */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* 📱 ตกแต่งการ์ดมือถือ */
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid #3498db;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .brand {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .model {
+            font-size: 1.6em;
+            color: #2c3e50;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .price {
+            font-size: 1.4em;
+            color: #27ae60;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background: #eafaf1;
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
+        /* 📱 ตกแต่งรายการสเปค */
+        ul.specs {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 0.95em;
+        }
+
+        ul.specs li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        ul.specs li:last-child {
+            border-bottom: none;
+        }
+
+        .icon {
+            margin-right: 10px;
+            font-size: 1.1em;
+        }
+
+        strong {
+            min-width: 90px;
+            display: inline-block;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>📱 แคตตาล็อกสมาร์ทโฟน 2025</h1>
+
+    <div class="grid-container">
+        <% phones.forEach(function(phone) { %>
+            <div class="card">
+                <div class="brand">
+                    <%= phone.brand %>
+                </div>
+                <div class="model">
+                    <%= phone.model %>
+                </div>
+                <div class="price">$<%= phone.price %>
+                </div>
+
+                <ul class="specs">
+                    <li><span class="icon">🖥️</span> <strong>หน้าจอ:</strong>
+                        <%= phone.display %>
+                    </li>
+                    <li><span class="icon">⚙️</span> <strong>ชิปเซ็ต:</strong>
+                        <%= phone.processor %>
+                    </li>
+                    <li><span class="icon">🚀</span> <strong>RAM/ROM:</strong>
+                        <%= phone.ram %> / <%= phone.storage %>
+                    </li>
+                    <li><span class="icon">📸</span> <strong>กล้องหลัง:</strong>
+                        <%= phone.rear_camera %>
+                    </li>
+                    <li><span class="icon">🤳</span> <strong>กล้องหน้า:</strong>
+                        <%= phone.front_camera %>
+                    </li>
+                    <li><span class="icon">🔋</span> <strong>แบตเตอรี่:</strong>
+                        <%= phone.battery %>
+                    </li>
+                    <li><span class="icon">🤖</span> <strong>ระบบปฏิบัติการ:</strong>
+                        <%= phone.os %>
+                    </li>
+                </ul>
+            </div>
+            <% }); %>
+    </div>
+
+</body>
+
+</html>
