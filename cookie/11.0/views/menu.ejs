@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <title>Phones Menu</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="bootstrap.min.js"></script>
+</head>
+
+<body class="bg-light">
+
+    <div class="container py-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="text-primary fw-bold">📱 สมาร์ทโฟน 2026</h1>
+            <div>
+                <a href="/cart" class="btn btn-warning shadow-sm">🛒 ดูตะกร้าสินค้า</a>
+                <a href="/clear-cart" class="btn btn-outline-danger shadow-sm">🗑️ ล้างตะกร้า</a>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <% data.forEach((item)=> { %>
+                <div class="col-md-4 col-lg-3">
+                    <div class="card h-100 shadow-sm border-0">
+                        <img src="http://webdev.it.kmitl.ac.th/phone-images/<%= item.pimage %>" class="card-img-top p-3"
+                            alt="<%= item.name %>">
+                        <div class="card-body text-center d-flex flex-column">
+                            <h5 class="card-title text-dark">
+                                <%= item.name %>
+                            </h5>
+                            <h4 class="text-success fw-bold my-2">$<%= item.price %>
+                            </h4>
+                            <p class="text-muted small mb-3">
+                                <%= item.storage %> | <%= item.camera %>
+                            </p>
+
+                            <a href="/add-to-cart/<%= item.id %>" class="btn btn-primary mt-auto">
+                                ➕ เพิ่มลงตะกร้า
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <% }); %>
+        </div>
+    </div>
+
+</body>
+
+</html>

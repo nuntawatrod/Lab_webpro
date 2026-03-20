@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="bootstrap.min.js"></script>
+</head>
+
+<body class="bg-light">
+
+    <div class="container py-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="text-primary fw-bold">🛒 ตะกร้าสินค้า</h1>
+            <div>
+                <a href="/menu" class="btn btn-secondary shadow-sm">🔙 เลือกซื้อต่อ</a>
+                <a href="/clear-cart" class="btn btn-danger shadow-sm">🗑️ ล้างตะกร้าทั้งหมด</a>
+            </div>
+        </div>
+
+        <% if (data.length===0) { %>
+            <div class="alert alert-info text-center fs-4 shadow-sm">
+                ตะกร้าของคุณยังว่างเปล่า รีบไปช้อปเลย! 🏃‍♂️
+            </div>
+            <% } else { %>
+                <div class="card shadow-sm border-0">
+                    <div class="card-body p-0">
+                        <table class="table table-hover mb-0">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>ชื่อสินค้า</th>
+                                    <th class="text-center">ราคาต่อชิ้น</th>
+                                    <th class="text-center">จำนวน</th>
+                                    <th class="text-end pe-4">ราคารวม</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% let total=0; %>
+                                    <% data.forEach((item)=> { %>
+                                        <% // คำนวณยอดเงิน: ดึงจำนวนชิ้นจาก itemCounts มาคูณกับราคา let
+                                            qty=itemCounts[item.id]; let subtotal=item.price * qty; total +=subtotal; %>
+                                            <tr>
+                                                <td class="align-middle fw-bold ps-3">
+                                                    <%= item.name %>
+                                                </td>
+                                                <td class="align-middle text-center text-muted">$<%= item.price %>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <span class="badge bg-primary rounded-pill fs-6 px-3">
+                                                        <%= qty %>
+                                                    </span>
+                                                </td>
+                                                <td class="align-middle text-end pe-4 fw-bold text-success">
+                                                    $<%= subtotal.toLocaleString() %>
+                                                </td>
+                                            </tr>
+                                            <% }); %>
+                            </tbody>
+                            <tfoot class="table-light">
+                                <tr>
+                                    <td colspan="3" class="text-end fw-bold fs-5">💰 ยอดชำระทั้งหมด:</td>
+                                    <td class="text-end pe-4 fw-bold fs-4 text-danger">
+                                        $<%= total.toLocaleString() %>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                <% } %>
+    </div>
+</body>
+
+</html>
